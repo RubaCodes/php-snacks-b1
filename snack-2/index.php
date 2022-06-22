@@ -1,14 +1,14 @@
 <?php
-$allowed = false;
+$allowed = 'Immettere le credenziali:';
 
 $userName = $_GET["userName"];
 $userMail = $_GET["userMail"];
 $userAge = $_GET["userAge"];
 
 if (strlen($userName) >= 3 && is_numeric($userAge) && filter_var($userMail, FILTER_VALIDATE_EMAIL)) {
-    $allowed = true;
+    $allowed = "Accesso consentito";
 } else {
-    $allowed = false;
+    $allowed = "Accesso negato";
 }
 ?>
 
@@ -19,6 +19,7 @@ if (strlen($userName) >= 3 && is_numeric($userAge) && filter_var($userMail, FILT
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
 
@@ -29,16 +30,17 @@ if (strlen($userName) >= 3 && is_numeric($userAge) && filter_var($userMail, FILT
         <input type="text" name="userAge" placeholder="Inserisci eta...">
         <button type="submit">submit</button>
     </form>
+    <h1><?php if (!count($_GET)) {
+            echo 'Inserire le credenziali';
+        } else {
+            echo $allowed;
+        } ?></h1>
 
-    <p>
-        <?php $allowed == true ?  "Accesso acconsentito" :  "Accesso negato"; ?>
-    </p>
-    <pre>
-        <?php echo $userAge ?>
-        <?php echo $userName ?>
-        <?php echo $userMail ?>
-        <?php var_dump($allowed) ?>
-    </pre>
+
+
+    <!-- <pre>
+        <//?php var_dump($_GET) ?>
+    </pre> -->
 </body>
 
 </html>
