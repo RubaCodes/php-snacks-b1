@@ -23,18 +23,24 @@ if (strlen($userName) >= 3 && is_numeric($userAge) && filter_var($userMail, FILT
     <title>Document</title>
 </head>
 
-<body>
-    <form>
-        <input type="text" name="userName" placeholder="Inserisci nome...">
-        <input type="text" name="userMail" placeholder="Inserisci email...">
-        <input type="text" name="userAge" placeholder="Inserisci eta...">
-        <button type="submit">submit</button>
-    </form>
-    <h1><?php if (!count($_GET)) {
-            echo 'Inserire le credenziali';
-        } else {
-            echo $allowed;
-        } ?></h1>
+<body class="h-[100vh] bg-blue-500 grid place-items-center ">
+    <div class="rounded-xl bg-blue-800 p-8">
+        <h1 class="text-3xl pb-8 text-white">
+            <?php if (!count($_GET)) {
+                echo 'Inserire le credenziali';
+            } else {
+                echo $allowed;
+            } ?></h1>
+        <form class=" flex flex-col gap-4 uppercase">
+            <input class="py-2 px-2 rounded" type="text" name="userName" placeholder="Inserisci nome...">
+            <input class="py-2 px-2 rounded" type="text" name="userMail" placeholder="Inserisci email...">
+            <input class="py-2 px-2 rounded" type="text" name="userAge" placeholder="Inserisci eta...">
+            <button class="py-2 px-2 rounded bg-purple-600 hover:bg-purple-500 text-white capitalize text-xl" type="submit">submit</button>
+        </form>
+
+    </div>
+
+
 
 
 
