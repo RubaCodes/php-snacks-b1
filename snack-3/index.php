@@ -65,7 +65,7 @@ $posts = [
         <?php } ?>
 
         <!-- seconda versione -->
-
+        <hr>
         <?php foreach ($posts as $key => $date) { ?>
             <h1><?= $key ?></h1>
             <?php foreach ($date as $key => $post) { ?>
