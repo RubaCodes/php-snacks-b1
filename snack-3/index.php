@@ -58,8 +58,30 @@ $posts = [
                 <ul>
                     <?php foreach ($post as $key => $info) { ?>
 
-                        <li><?php echo $info ?></li>
+                        <li><?php echo "$key : $info" ?></li>
                     <?php } ?>
+                </ul>
+            <?php } ?>
+        <?php } ?>
+
+        <!-- seconda versione -->
+
+        <?php foreach ($posts as $key => $date) { ?>
+            <h1><?= $key ?></h1>
+            <?php foreach ($date as $key => $post) { ?>
+                <ul style="list-style: none ;">
+                    <li>
+                        <h1>
+                            <?php echo $post['title'] ?>
+                        </h1>
+                        <h4>
+                            <?php echo $post['author'] ?>
+                        </h4>
+                        <p>
+                            <?php echo $post['text'] ?>
+                        </p>
+
+                    </li>
                 </ul>
             <?php } ?>
         <?php } ?>
